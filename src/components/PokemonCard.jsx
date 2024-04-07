@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 
 //Ajout de données : listes pokémon
 const pokemonList = [
@@ -14,9 +15,15 @@ const pokemonList = [
     name: "Dracofeu",
     imgSrc:
       "https://www.pokepedia.fr/images/thumb/1/17/Dracaufeu-RFVF.png/800px-Dracaufeu-RFVF.png",
-  },
+  }
 ];
+PokemonCard.propTypes = {
+  pokemon: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    imgSrc: PropTypes.string,
 
+  }).isRequired,
+}
 
 function PokemonCard() {
   const pokemonTrainer = "Laura";
@@ -26,6 +33,7 @@ function PokemonCard() {
     <>
       <h3>
         Hello <strong>{pokemonTrainer}</strong> trainer !
+
       </h3>
       <figure>
         {pokemon.imgSrc != null ? (
